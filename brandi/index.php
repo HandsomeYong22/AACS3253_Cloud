@@ -4,7 +4,7 @@
 include_once('config/session.php'); 
 $id=$_GET['UserID'];
 ?>
-
+<!-- testing -->
 <head>
     	<!-- meta charec set -->
         <meta charset="utf-8">
