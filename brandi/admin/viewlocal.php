@@ -3,7 +3,7 @@
 <?php require_once('adminheader.php');?>
 <?php include_once('..\config\function.php');?>
 <head>
-<title>View Local Package</title>
+<title>View Product</title>
 </head>
 <body>
 <div class="container-fluid ">
@@ -12,22 +12,15 @@
 <div class="admin-box">
 <div class="row">
 <div class="admin-det">
-<h1>View Local Package</h1>
+<h1>View Product</h1>
 <br>
 <table style="font-size: 10px;">
   <tr>
     <th>No</th>
-    <th>Package ID</th>
-    <th>Package Name</th>
-    <th>Location</th>
-    <th>Start Date</th>
-    <th>End Date</th>
+    <th>Product ID</th>
+    <th>Product Name</th>
     <th>Price</th>
-    <th>Description 1</th>
-    <th>Description 2</th>
-    <th>Description 3</th>
-    <th>Description 4</th>
-    <th>Description 5</th>
+    <th>Description </th>
     <th>Display Image</th>
     <th>Update</th>
     <th>Delete</th>
@@ -44,26 +37,19 @@
     <td><?php echo  $no; ?></td>
     <td><?php echo $row['PackageID'] ; ?></td>
     <td><?php echo $row['PackageName'] ; ?></td>
-    <td><?php echo $row['Location'] ; ?></td>
-    <td><?php echo $row['StartDate'] ; ?></td>
-    <td><?php echo $row['EndDate'] ; ?></td>
     <td><?php echo "RM".$row['Price'] ; ?></td>
     <td><?php echo $row['Extra1'] ; ?></td>
-    <td><?php echo $row['Extra2'] ; ?></td>
-    <td><?php echo $row['Extra3'] ; ?></td>
-    <td><?php echo $row['Extra4'] ; ?></td>
-    <td><?php echo $row['Extra5'] ; ?></td>
     <?php $showimage = $row['PackageImg'];?>
     <td><img src="<?php echo $showimage ?>" width="80" height="80"/></td>
-    <td><p><a href="updatelocal.php?PackageID=<?php echo  $row['PackageID'] ; ?>&UserID=<?php echo $id?>">Update Local Package </a> </p></td>
-    <td><p><a href="deletelocal.php?PackageID=<?php echo  $row['PackageID'] ; ?>&UserID=<?php echo $id?>">Delete Local Package </a> </p></td>
+    <td><p><a href="updatelocal.php?PackageID=<?php echo  $row['PackageID'] ; ?>&UserID=<?php echo $id?>">Update Product </a> </p></td>
+    <td><p><a href="deletelocal.php?PackageID=<?php echo  $row['PackageID'] ; ?>&UserID=<?php echo $id?>">Delete Product </a> </p></td>
   </tr>
   <?php $no++;
  } ?>
 </table>
 <br>
 <div class="insertframe">
-<a href="insertlocal.php?UserID=<?php echo $id?>">Insert Local Package </a>
+<a href="insertlocal.php?UserID=<?php echo $id?>">Insert Product </a>
 </div>
 </div>
 </div>

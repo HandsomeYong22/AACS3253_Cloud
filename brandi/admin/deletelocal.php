@@ -13,5 +13,5 @@ if (isset($_GET['PackageID'])){
         WHERE (`PackageID`='".$p."') ";  
         mysqli_select_db($conn,"myproject"); 
         $result=mysqli_query($conn,$sql); 
-      goto2("viewlocal.php?UserID=$id","Local package is successfully deleted");
+      goto2("viewlocal.php?UserID=$id","Product is successfully deleted");
 } 

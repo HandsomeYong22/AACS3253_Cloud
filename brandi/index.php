@@ -66,7 +66,7 @@ $id=$_GET['UserID'];
 					<!-- /responsive nav button -->
 					<a class="navbar-brand" href="#body">
 						<h1 id="logo">
-							<img src="img/headlogo9.png" alt="GOGO">
+							<img src="img/headlogo.png" alt="GOGO">
 						</h1>
 					</a>
 				</div>	
@@ -81,15 +81,11 @@ $id=$_GET['UserID'];
 									<?php while ($slocal=mysqli_fetch_assoc($searchlocal)){  ?>
 									<a href="viewlocal.php?PackageID=<?php echo  $slocal['PackageID'];?>&UserID=<?php echo $id?>"><?php echo  $slocal['PackageName'];?></a>
 									<?php } ?>
-									<?php while ($sinter=mysqli_fetch_assoc($searchinter)){  ?>
-									<a href="viewinternational.php?PackageID=<?php echo  $sinter['PackageID'];?>&UserID=<?php echo $id?>"><?php echo  $sinter['PackageName'];?></a>
-									<?php } ?>
 						</div>
 						</div></li>
                         <li class="current"><a href="#body">Home</a></li>
                         <li><a href="#features">Features</a></li>
-                        <li><a href="#works">Packages</a></li>
-                        <li><a href="#team">Branch</a></li>
+                        <li><a href="#works">Product</a></li>
                         <li><a href="#contact">Contact</a></li>
 						<li><a href="profile.php?UserID=<?php echo $id?>"><i class="fa fa-user fa-1x"></i></a></li>
 						<li><a href="logout.php"><i class="fa fa-sign-out fa-1x"></i></a></li>
@@ -206,19 +202,17 @@ $id=$_GET['UserID'];
 				<div class="row">
 				
 					<div class="sec-title text-center">
-						<h2>Travel Package</h2>
+						<h2>Product</h2>
 						<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
 					</div>
 					
 					<div class="sec-sub-title text-center">
-						<p>Our promoting travel package</p>
+						<p>Our promoting Product</p>
 					</div>
 					
 					<div class="work-filter wow fadeInRight animated" data-wow-duration="500ms">
 						<ul class="text-center">
 							<li><a href="javascript:;" data-filter="all" class="active filter">All</a></li>
-							<li><a href="javascript:;" data-filter=".local" class="filter">Local</a></li>
-							<li><a href="javascript:;" data-filter=".international" class="filter">International</a></li>
 						</ul>
 					</div>
 					
@@ -232,24 +226,8 @@ $id=$_GET['UserID'];
 					<figcaption class="overlay">
 					<p>&nbsp; &nbsp;<a class="fancybox" rel="works" title="<?php echo $localrow['PackageName'];?>" href="viewlocal.php?PackageID=<?php echo  $localrow['PackageID'];?>&UserID=<?php echo $id?>"><i class="fa fa-eye fa-lg"></i></a></p>
 						<h4>&nbsp; &nbsp;<?php echo $localrow['PackageName'] ; ?>&nbsp;<i class="fa fa-flag-o fa-lg"></i></h4>
-						<p>&nbsp; &nbsp;<i class="fa fa-location-arrow fa-lg"></i><b> &nbsp; Location: </b><?php echo $localrow['Location'] ; ?></p>
+						<p>&nbsp; &nbsp;<i class="fa fa-location-arrow fa-lg"></i><b> &nbsp; Product ID: </b><?php echo $localrow['Location'] ; ?></p>
 						<p>&nbsp; &nbsp;<i class="fa fa-dollar fa-lg"></i><b>&nbsp; &nbsp; Price   : RM </b><?php echo $localrow['Price'] ; ?></p>
-						<p>&nbsp; &nbsp;<i class="fa fa-calendar-o fa-lg"></i><b> &nbsp;Duration: </b><?php echo $localrow['StartDate'] ; ?> to <?php echo $localrow['EndDate'] ; ?></p>
-					
-					</figcaption>
-				</figure>
-				<?php } ?>
-			
-			<?php while ($internationalrow=mysqli_fetch_assoc($international)){  ?>
-				<figure class="mix work-item international">
-					<img src="<?php echo "admin/".$internationalrow['PackageImg']; ?>" alt="" >
-					<figcaption class="overlay"> 
-					<p>&nbsp; &nbsp;<a class="fancybox" rel="works" title="<?php echo $internationalrow['PackageName'];?>" href="viewinternational.php?PackageID=<?php echo  $internationalrow['PackageID'];?>&UserID=<?php echo $id?>"><i class="fa fa-eye fa-lg"></i></a></p>
-						<h4>&nbsp; &nbsp;<?php echo $internationalrow['PackageName'] ; ?> <i class="fa fa-flag-checkered fa-lg"></i></h4>
-						<p>&nbsp; &nbsp;<i class="fa fa-location-arrow fa-lg"></i><b> &nbsp; <?php echo $internationalrow['Country'] ; ?></b></p>
-						<p>&nbsp; &nbsp;<i class="fa fa-dollar fa-lg"></i><b>&nbsp; &nbsp; Price   : RM </b><?php echo $internationalrow['Price'] ; ?></p>
-						<p>&nbsp; &nbsp;<i class="fa fa-calendar-o fa-lg"></i><b> &nbsp;Duration: </b><?php echo $internationalrow['StartDate'] ; ?> to <?php echo $internationalrow['EndDate'] ; ?></p>
-
 					</figcaption>
 				</figure>
 				<?php } ?>
@@ -262,53 +240,6 @@ $id=$_GET['UserID'];
         End Our Works
         ==================================== -->
 		
-        <!--
-        Meet Our Team
-        ==================================== -->		
-		
-		<section id="team" class="team">
-			<div class="container">
-				<div class="row">
-		
-					<div class="sec-title text-center wow fadeInUp animated" data-wow-duration="700ms">
-						<h2>Our Branch</h2>
-						<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
-					</div>
-					
-					<div class="sec-sub-title text-center wow fadeInRight animated" data-wow-duration="500ms">
-						<p>Our branch details!</p>
-					</div>
-
-					<!-- single member -->
-					<?php while ($branchrow=mysqli_fetch_assoc($branch)){  ?>
-					<figure class="team-member col-md-3 col-sm-7 col-xs-13 text-center wow fadeInUp animated" data-wow-duration="500ms">
-						<div class="member-thumb">
-							<img src="<?php echo "admin/".$branchrow['BranchImage']?>" alt="Branch Photo" class="img-responsive">
-							<figcaption class="overlay">
-								<h5><?php echo $branchrow['BranchName']?> Branch</h5>
-								<pre><b>Address: </b><br><?php echo$branchrow['Address1'];?><br><?php echo $branchrow['Address2'];?><br><?php echo $branchrow['Postcode']." ".$branchrow['State'];?></pre>
-								
-								<ul class="social-links text-center">
-									<li><a href="tel:<?php $branchrow['ContactNo'];?>"><i class="fa fa-phone fa-lg"></i></a></li>
-									<li><a href="mailto:<?php $branchrow['Email'];?>"><i class="fa fa-envelope fa-lg"></i></a></li>
-								</ul>
-							</figcaption>
-						</div>
-						<h4><?php echo $branchrow['BranchID']?></h4>
-						<span><?php echo $branchrow['BranchName']?></span>
-						<p>Contact: +<?php echo $branchrow['ContactNo']?></p>
-						<p>Email: <?php echo $branchrow['Email']?></p>
-					</figure>
-					<?php } ?>
-					<!-- end single member -->
-					
-				</div>
-			</div>
-		</section>
-		
-        <!--
-        End Meet Our Team
-        ==================================== -->
 		
 		<!--
         Some fun facts
@@ -429,8 +360,8 @@ $id=$_GET['UserID'];
 			<!-- Google map -->
 			<!--
 			<div id="map_canvas" class="wow bounceInDown animated" data-wow-duration="500ms"></div> -->
-			<iframe id="map_canvas" class="wow bounceInDown animated" data-wow-duration="500ms" 
-			src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=%20Skudai+()&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe> 
+			<iframe id="map_canvas" class="wow bounceInDown animated" data-wow-duration="500ms" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.7609845281377!2d100.28229957474423!3d5.453205194526306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x304ac2c0305a5483%3A0xfeb1c7560c785259!2sTAR%20University%20College!5e0!3m2!1szh-CN!2smy!4v1745851884871!5m2!1szh-CN!2smy"
+				 width="520" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 			<!-- End Google map -->
 			
 		</section>
@@ -447,13 +378,12 @@ $id=$_GET['UserID'];
 					<div class="col-md-5 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms">
 						<div class="footer-single">
 						<a href="#body">
-							<img src="img/footlogo8.png" alt=""  href="#body"></a>
+							<img src="img/headlogo.png" alt=""  href="#body"></a>
 							<h3><b><br>About Us</b></h3>
-							<p><br>At GOGOTravel, we offer the best way to discover activities, attractions and things to do wherever you travel.
-							We help you to discover and book in-destination services at the best prices. With a few taps or clicks, 
-							you can be ready to travel wherever you want.<br>
-							We are committed to bringing out you the best in value and quality travel arrangement, 
-							and strive to become "Your Choice of A Truly Vacation."</p>
+							<p><br>At GOGO Graduate, we specialize in providing beautiful graduation bouquets and gifts to celebrate your big achievement. 
+							We help you easily select and book the perfect flowers to make your graduation day even more memorable.<br>
+							We are committed to offering the best in quality and value, and strive to become "Your Choice for Graduation Gifts and Bouquets."</p>
+
 							
 						</div>
 					</div>
@@ -485,7 +415,7 @@ $id=$_GET['UserID'];
 				<div class="row">
 					<div class="col-md-12">
 						<p class="copyright text-center">
-							Copyright © 2021 GOGOTravel. All rights reserved. Designed & developed by Group 6.</a>
+							Copyright © 2025 GOGOGraduate. All rights reserved.</a>
 						</p>
 					</div>
 				</div>

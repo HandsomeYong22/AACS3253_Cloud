@@ -24,7 +24,7 @@ include_once('config/function.php');?>
                         <i class="fa fa-bars fa-2x"></i>
                     </button>
                     <!-- /responsive nav button -->
-                      <img src="img/headlogo9.png" alt="Gogo" id="logo">
+                      <img src="img/headlogo.png" alt="Gogo" id="logo">
                 </div>
 
 				<!-- main nav -->

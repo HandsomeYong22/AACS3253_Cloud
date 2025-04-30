@@ -38,7 +38,7 @@ $id=$_GET['UserID'];
 					<!-- /responsive nav button -->
                     <a class="navbar-brand" href="..\index.php?UserID=<?php echo$id?>">
                     <h1 id="logo">    
-                    <img src="../img/headlogo9.png" alt="Gogo" id="logo">
+                    <img src="../img/headlogo.png" alt="Gogo" id="logo">
                     </h1>
                     </a> 
                 </div>

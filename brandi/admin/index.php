@@ -18,19 +18,11 @@
                         <h2><?php echo $admintopic; ?></h2>
                         <p><?php echo $admincontent; ?></p>
                         <a href="viewlocalappoint.php?UserID=<?php echo$id?>">
-                        <button class="btn btn-success btn-round">Manage Local Package Appointments</button>
-                        
-                        <br><br> 
-                        <a href="viewinternationalappoint.php?UserID=<?php echo$id?>">
-                        <button class="btn btn-success btn-round">Manage International Package Appointments</button>
-                        
-                        <br><br> 
-                        <a href="viewinternational.php?UserID=<?php echo$id?>">
-                        <button class="btn btn-success btn-round">Manage International Package</button>
+                        <button class="btn btn-success btn-round">Manage Product Payment</button>
 
                         <br><br> 
                         <a href="viewlocal.php?UserID=<?php echo$id?>">
-                        <button class="btn btn-success btn-round">Manage Local Package</button>
+                        <button class="btn btn-success btn-round">Manage Product</button>
 
                         <br><br>
                         <a href="viewwebcontent.php?UserID=<?php echo$id?>">
@@ -43,10 +35,6 @@
                         <br><br> 
                         <a href="viewfeature.php?UserID=<?php echo$id?>">
                         <button class="btn btn-success btn-round">Manage Feature</button>
-
-                        <br><br> 
-                        <a href="viewbranch.php?UserID=<?php echo$id?>">
-                        <button class="btn btn-success btn-round">Manage Branch</button>
 
                         <br><br>
                         <a href="viewuser.php?UserID=<?php echo$id?>">

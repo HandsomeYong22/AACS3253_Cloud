@@ -3,7 +3,7 @@
 <?php require_once('adminheader.php');?>
 <?php include_once('..\config\function.php');?>
 <head>
-<title>Insert Appointment</title>
+<title>Insert Details</title>
 </head>
 <body>
 <div class="container-fluid ">
@@ -12,7 +12,7 @@
 <div class="admin-box">
 <div class="row">
 <div class="admin-det">
-<h1>Insert Appointment</h1>
+<h1>Insert Details</h1>
 <?php 
 
 if (isset($_POST['date'])){
@@ -31,14 +31,12 @@ if (isset($_POST['date'])){
   
 ?>
 <form action="insertlocalappoint.php?UserID=<?php echo $id?>" method="POST">
-  <label for="AppointmentID">Appointment ID:</label>
+  <label for="AppointmentID">Payment ID:</label>
   <input type="text"  id="appointid" name="appointid" ><br><br>
-  <label for="Date">Appointment Date:</label>
+  <label for="Date">Payment Date:</label>
   <input type="date" id="date" name="date" value=""><br><br>
-  <label for="PackageID">Local Package ID:</label>
+  <label for="PackageID">Product ID:</label>
   <input type="text" id="packageid" name="packageid" value=""><br><br>
-  <label for="TravelDate">Travel Date:</label>
-  <input type="date" id="traveldate" name="traveldate" value=""><br><br>
   <label for="UserID">User ID:</label>
   <input type="text" id="userid" name="userid" value=""><br><br>
   <label for="Status">Status:</label>

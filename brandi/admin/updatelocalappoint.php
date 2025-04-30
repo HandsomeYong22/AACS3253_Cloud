@@ -3,7 +3,7 @@
 <?php require_once('adminheader.php');?>
 <?php include_once('..\config\function.php');?>
 <head>
-<title>Update Appointment</title>
+<title>Update Details</title>
 </head>
 <body>
 <div class="container-fluid ">
@@ -12,7 +12,7 @@
 <div class="admin-box">
 <div class="row">
 <div class="admin-det">
-<h1>Update Local Package Appointment</h1>
+<h1>Update Payment & Cart Details</h1>
 <?php 
 
 if (isset($_POST['date'])){
@@ -25,7 +25,7 @@ if (isset($_POST['date'])){
  WHERE (`AppointID`='".$a."') LIMIT 1";  // sql command
  mysqli_select_db($conn,"myproject"); ///select database as default
  $result=mysqli_query($conn,$sql);  // command allow sql cmd to be sent to mysql
- goto2("viewlocalappoint.php?UserID=$id","Appointment successfully updated");
+ goto2("viewlocalappoint.php?UserID=$id","Details successfully updated");
  
 } else {
     $a=$_GET['AppointID'];
@@ -44,23 +44,19 @@ if (isset($_POST['date'])){
 
 ?>
 <form action="updatelocalappoint.php?UserID=<?php echo $id?>" method="POST">
-  <h3>Appointment Details</h3>
-  <label for="AppointmentID">Appointment ID:</label>
+  <h3>Payment & Cart Details</h3>
+  <label for="AppointmentID">Payment ID:</label>
   <input type="text"  id="appointid" name="appointid" value="<?php echo $a;?>" ><br><br>
-  <label for="Date">Appointment Date:</label>
+  <label for="Date">Payment Date:</label>
   <input type="date" id="date" name="date" value="<?php echo $row['Date'];?>"><br><br>
   <label for="Status">Status:</label>
   <input type="text" id="status" name="status" value="<?php echo $row['Status'];?>"><br><br>
   <hr>
-  <h3>Package Details</h3>
-  <label for="PackageID">Package ID:</label>
+  <h3>Product Details</h3>
+  <label for="PackageID">Product ID:</label>
   <input type="text" id="packageid" name="packageid" value="<?php echo $row['LocalPackageID'];?>"><br><br>
-  <label for="PackageName">Package Name:</label>
+  <label for="PackageName">Product Name:</label>
   <input type="text" disabled id="packagename" name="packagename" value="<?php echo $row2['PackageName'];?>"><br><br>
-  <label for="TravelDate">Travel Date:</label>
-  <input type="text" disabled id="traveldate" name="traveldate" value="<?php echo $row2['StartDate']."-".$row2['EndDate'];?>"><br><br>
-  <label for="Location">Location:</label>
-  <input type="text" disabled id="location" name="location" value="<?php echo $row2['Location'];?>"><br><br>
   <label for="Price"> Price:</label>
   <input type="text" disabled id="price" name="price" value="<?php echo $row2['Price'];?>"><br><br>
   <hr>

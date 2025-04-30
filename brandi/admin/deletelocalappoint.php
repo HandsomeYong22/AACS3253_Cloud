@@ -14,5 +14,5 @@ if (isset($_GET['AppointID'])){
         WHERE (`AppointID`='".$p."') ";  
         mysqli_select_db($conn,"myproject"); 
         $result=mysqli_query($conn,$sql); 
-      goto2("viewlocalappoint.php?UserID=$id","Local package appointment is successfully deleted");
+      goto2("viewlocalappoint.php?UserID=$id","Payment or Cart is successfully deleted");
 } 
