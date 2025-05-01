@@ -3,7 +3,7 @@
 <?php include_once("config/settings.php"); 
 include_once('config/session.php'); 
     $p=$_GET['PackageID'];
-    $sql ="select * from tbllocal where PackageID='".$p."'";  // sql command
+    $sql ="select * from tblinternational where PackageID='".$p."'";  // sql command
     mysqli_select_db($conn,"myproject"); ///select database as default
     $result=mysqli_query($conn,$sql);  
     $row=mysqli_fetch_assoc($result); 
@@ -15,8 +15,8 @@ include_once('config/session.php');
 		<!-- Always force latest IE rendering engine or request Chrome Frame -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<!-- Page Title -->
-        <title><?php echo $row['PackageName']?></title>	
-        <link href="img/logo.png" rel="icon">
+        <title><?php echo $row['PackageName']; ?></title>	
+        <link href="img/logo.png" rel="icon">	
 		<!-- Meta Description -->
         <meta name="description" content="Blue One Page Creative HTML5 Template">
         <meta name="keywords" content="one page, single page, onepage, responsive, parallax, creative, business, html5, css3, css3 animation">
@@ -46,10 +46,8 @@ include_once('config/session.php');
 
 		<!-- Modernizer Script for old Browsers -->
         <script src="js/modernizr-2.6.2.min.js"></script>
-        
+
     </head>
-    
-    
     <body id="body">
 	
     <!-- preloader -->
@@ -74,7 +72,7 @@ include_once('config/session.php');
                 <!-- logo -->
                 <a class="navbar-brand" href="index.php?UserID=<?php echo $id?>">
                     <h1 id="logo">
-                        <img src="img/headlogo.png" alt="Gogo">
+                        <img src="img/headlogo9.png" alt="Gogo">
                     </h1>
                 </a>
                 <!-- /logo -->
@@ -130,9 +128,9 @@ include_once('config/session.php');
 				<div class="carousel-inner" role="listbox">
 					
 					<!-- single slide -->
-					<div class="item active" style="background-image: url(<?php echo "admin/".$row['PackageImg'] ?>); filter:contrast(105%)">>
+					<div class="item active" style="background-image: url(<?php echo "admin/".$row['PackageImg'] ?>); filter:contrast(120%)">
 						<div class="carousel-caption">
-							<h2 data-wow-duration="700ms" data-wow-delay="500ms" class="wow bounceInDown animated" style="text-shadow: 2px 2px gray;"><?php echo $row['PackageName'] ?></h2>
+							<h2 data-wow-duration="700ms" data-wow-delay="500ms" class="wow bounceInDown animated" style="text-shadow: 2px 2px #gray;"><?php echo $row['PackageName'] ?></h2>
 							<h3 data-wow-duration="1000ms" class="wow slideInLeft animated"><span class="color">From <?php echo $row['StartDate'] ?></h3>
 							<h3 data-wow-duration="1000ms" class="wow slideInLeft animated"><span class="color">To <?php echo $row['EndDate'] ?></h3>
 						</div>
@@ -241,8 +239,8 @@ include_once('config/session.php');
 							</div>
 							
 							<div class="service-desc">
-								<h3>Location</h3>
-								<p><?php echo $row['Location']?></p>
+								<h3>Country</h3>
+								<p><?php echo $row['Country']?></p>
 							</div>
 						</div>
 					</div>
@@ -267,21 +265,21 @@ include_once('config/session.php');
                 <?php 
 
                 if (isset($_POST['date'])){
-                    $lid=$localappid;
+                    $pid=$internationalappid;
                     $d=$_POST['date']; 
                     $p=$_POST['packageid'];
                     $t=$_POST['traveldate'];
                     $u=$_POST['userid'];
                     $s="Pending";
-                    $sql ="INSERT INTO `tbllocalappoint` ( `AppointID`,`Date`, `LocalPackageID`, `TravelDate`, `UserID`, `Status`) 
-                    VALUES ('".$lid."','".$d."', '".$p."', '".$t."', '".$u."', '".$s."')";  
+                    $sql ="INSERT INTO `tblinternationalappoint` ( `AppointID`,`Date`, `InternationalPackageID`, `TravelDate`, `UserID`, `Status`) 
+                    VALUES ('".$pid."','".$d."', '".$p."', '".$t."', '".$u."', '".$s."')";  
                     mysqli_select_db($conn,"myproject"); ///select database as default
                     $result=mysqli_query($conn,$sql);// command allow sql cmd to be sent to mysql
-                    goto2("index.php?UserID=$id","Your appointment is successfully booked.Your appointment id is $lid");
+                    goto2("index.php?UserID=$id","Your appointment is successfully booked.Your appointment id is $pid");
                 } else {
                 
                 ?>
-                <form action="viewlocal.php?PackageID=<?php echo  $row['PackageID'];?>&UserID=<?php echo $id?>" method="POST">
+                <form action="viewinternational.php?PackageID=<?php echo  $row['PackageID'];?>&UserID=<?php echo $id?>" method="POST">
                 <label for="Date">Appointment Date:</label>
                 <input type="date" id="date" name="date" value=""><br><br>
                 <label for="PackageID">Package ID:</label>
@@ -308,74 +306,81 @@ include_once('config/session.php');
     ==================================== -->		
     
     <section id="contact" class="contact">
-        <div class="container">
-            <div class="row mb50">
-            
-                <div class="sec-title text-center mb50 wow fadeInDown animated" data-wow-duration="500ms">
-                    <h2>Still have some question?</h2>
-                    <div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
-                </div>
-                
-                <div class="sec-sub-title text-center wow rubberBand animated" data-wow-duration="1000ms">
-                    <p>How do you think about the trip</p>
-                </div>
-                
-                <!-- contact address-->
-                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 wow fadeInLeft animated" data-wow-duration="500ms">
-                    <div class="contact-address">
-                        <h3>Have a question?<br> Let us help you !</h3>
+			<div class="container">
+				<div class="row mb50">
+				
+					<div class="sec-title text-center mb50 wow fadeInDown animated" data-wow-duration="500ms">
+						<h2>Please Contact Us</h2>
+						<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
+					</div>
+					
+					<div class="sec-sub-title text-center wow rubberBand animated" data-wow-duration="1000ms">
+						<p>How was your experience? </p>
+					</div>
+					
+					<!-- contact address-->
+					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 wow fadeInLeft animated" data-wow-duration="500ms">
+						<div class="contact-address">
+							<h3>Have a question?<br> Let us help you !</h3>
 							<p>Need help? We're right here, always.</p>
 							<p>Get quick answers, contact info, and <br>more with our interactive help feature.</p>
 							<p id="hotline"> Hotline:<a href="tel:071234567" style="color:black;" >+ 07-1234567 <i class="fa fa-phone fa-lg"></i></a></p>
-                    </div>
-                </div> 
-                <!-- end contact address -->
-                
-                <!-- contact form -->
-                <div class="col-lg-8 col-md-8 col-sm-7 col-xs-12 wow fadeInDown animated" data-wow-duration="500ms" data-wow-delay="300ms">
-                    <div class="contact-form">
-                        <h3>Kindly leave us a feedback message</h3>
-                        <form action="#" id="contact-form">
-                            <div class="input-group name-email">
-                                <div class="input-field">
-                                    <input type="text" name="name" id="name" placeholder="Name" class="form-control">
-                                </div>
-                                <div class="input-field">
-                                    <input type="email" name="email" id="email" placeholder="Email" class="form-control">
-                                </div>
-                            </div>
-                            <div class="input-group">
-                                <textarea name="message" id="message" placeholder="Message" class="form-control"></textarea>
-                            </div>
-                            <div class="input-group">
-                                <input type="submit" id="form-submit" class="pull-right" value="Send message">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <!-- end contact form -->
-                
-                <!-- footer social links -->
-                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12 wow fadeInRight animated" data-wow-duration="500ms" data-wow-delay="600ms">
-                    <ul class="footer-social">
-                        <li><a href="https://twitter.com/GOGOTravelWeb"><i class="fa fa-twitter fa-2x"></i></a></li>
-                        <li><a href="https://www.instagram.com/_gogotravel_/"><i class="fa fa-instagram fa-2x"></i></a></li>
-                        <li><a href="https://www.facebook.com/Gogotravel-102258424578661/"><i class="fa fa-facebook fa-2x"></i></a></li>
-                    </ul>
-                </div>
-                <!-- end footer social links -->
-                
-            </div>
-        </div>
-        
-    </section>
-    
-    <!--
-    End Contact Us
-    ==================================== -->
-    
-    
-    <footer id="footer" class="footer">
+						</div>
+					</div> 
+					<!-- end contact address -->
+					
+					<!-- contact form -->
+					<div class="col-lg-8 col-md-8 col-sm-7 col-xs-12 wow fadeInDown animated" data-wow-duration="500ms" data-wow-delay="300ms">
+						<div class="contact-form">
+							<h3>Kindly leave us a feedback message</h3>
+							<form action="#" id="contact-form">
+								<div class="input-group name-email">
+									<div class="input-field">
+										<input type="text" name="name" id="name" placeholder="Name" class="form-control">
+									</div>
+									<div class="input-field">
+										<input type="email" name="email" id="email" placeholder="Email" class="form-control">
+									</div>
+								</div>
+								<div class="input-group">
+									<textarea name="message" id="message" placeholder="Message" class="form-control"></textarea>
+								</div>
+								<div class="input-group">
+									<input type="submit" id="form-submit" class="pull-right" value="Send message">
+								</div>
+							</form>
+						</div>
+					</div>
+					<!-- end contact form -->
+					
+					<!-- footer social links -->
+					<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12 wow fadeInRight animated" data-wow-duration="500ms" data-wow-delay="600ms">
+						<ul class="footer-social">
+							<li><a href="https://twitter.com/GOGOTravelWeb"><i class="fa fa-twitter fa-2x"></i></a></li>
+							<li><a href="https://www.instagram.com/_gogotravel_/"><i class="fa fa-instagram fa-2x"></i></a></li>
+							<li><a href="https://www.facebook.com/Gogotravel-102258424578661/"><i class="fa fa-facebook fa-2x"></i></a></li>
+						</ul>
+					</div>
+					<!-- end footer social links -->
+					
+				</div>
+			</div>
+			
+			<!-- Google map -->
+			<!--
+			<div id="map_canvas" class="wow bounceInDown animated" data-wow-duration="500ms"></div> -->
+			<iframe id="map_canvas" class="wow bounceInDown animated" data-wow-duration="500ms" 
+			src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=%20Skudai+()&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe> 
+			<!-- End Google map -->
+			
+		</section>
+		
+        <!--
+        End Contact Us
+        ==================================== -->
+		
+		
+		<footer id="footer" class="footer">
 			<div class="container">
 				<div class="row">
 				
@@ -427,6 +432,7 @@ include_once('config/session.php');
 			</div>
 		</footer>
 		<a href="javascript:void(0);" id="back-top"><i class="fa fa-angle-up fa-3x"></i></a>
+    
 
     <!-- Essential jQuery Plugins
     ================================================== -->
@@ -560,7 +566,7 @@ include_once('config/session.php');
 					a[i].style.display = "none";
 					}
 				}	
-			}
+		}
     </script>
 </body>
 </html>

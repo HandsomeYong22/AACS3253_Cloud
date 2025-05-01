@@ -226,7 +226,6 @@ $id=$_GET['UserID'];
 					<figcaption class="overlay">
 					<p>&nbsp; &nbsp;<a class="fancybox" rel="works" title="<?php echo $localrow['PackageName'];?>" href="viewlocal.php?PackageID=<?php echo  $localrow['PackageID'];?>&UserID=<?php echo $id?>"><i class="fa fa-eye fa-lg"></i></a></p>
 						<h4>&nbsp; &nbsp;<?php echo $localrow['PackageName'] ; ?>&nbsp;<i class="fa fa-flag-o fa-lg"></i></h4>
-						<p>&nbsp; &nbsp;<i class="fa fa-location-arrow fa-lg"></i><b> &nbsp; Product ID: </b><?php echo $localrow['Location'] ; ?></p>
 						<p>&nbsp; &nbsp;<i class="fa fa-dollar fa-lg"></i><b>&nbsp; &nbsp; Price   : RM </b><?php echo $localrow['Price'] ; ?></p>
 					</figcaption>
 				</figure>

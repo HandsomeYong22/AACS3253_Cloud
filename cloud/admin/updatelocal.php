@@ -16,27 +16,31 @@
 
 <?php 
 if (isset($_POST['packagename'])){
-        $p=$_POST['packageid'];  
-        $pn=$_POST['packagename'];
-        $price=$_POST['price'];
-        $extra1=$_POST['extra1'];
-        $packageimg= $_FILES['packageimg']['name'];
-        $packageimg_temp=$_FILES['packageimg']['tmp_name'];
-        $imgloc="image/".$packageimg;
-        if(move_uploaded_file($packageimg_temp , "image/$packageimg")){		
-        $sql ="UPDATE `tbllocal` SET `PackageName`='".$pn."'  ,`Price`='".$price."' , `Extra1`='".$extra1."' , `PackageImg`='".$imgloc."' 
-        WHERE (`PackageID`='".$p."') LIMIT 1";  
-        mysqli_select_db($conn,"myproject"); ///select database as default
-        $result=mysqli_query($conn,$sql);  
-        goto2("viewlocal.php?UserID=$id"," Product and image is successfully updated");
-        }
-        else{
-          $sql ="UPDATE `tbllocal` SET `PackageName`='".$pn."' ,`Price`='".$price."' , `Extra1`='".$extra1."' 
-          WHERE (`PackageID`='".$p."') LIMIT 1";  
-            mysqli_select_db($conn,"myproject"); ///select database as default
-            $result=mysqli_query($conn,$sql);  
-            goto2("viewlocal.php?UserID=$id"," Product is successfully updated");
-        }
+  $p = $_POST['packageid'];  
+  $pn = mysqli_real_escape_string($conn, $_POST['packagename']);
+  $price = mysqli_real_escape_string($conn, $_POST['price']);
+  $extra1 = mysqli_real_escape_string($conn, $_POST['extra1']);
+  $packageimg = $_FILES['packageimg']['name'];
+  $packageimg_temp = $_FILES['packageimg']['tmp_name'];
+  $imgloc = "image/" . $packageimg;
+
+  if (move_uploaded_file($packageimg_temp , $imgloc)) {		
+      $sql = "UPDATE `tbllocal` 
+              SET `PackageName`='$pn', `Price`='$price', `Extra1`='$extra1', `PackageImg`='$imgloc' 
+              WHERE `PackageID`='$p' 
+              LIMIT 1";  
+      mysqli_select_db($conn, "myproject");
+      $result = mysqli_query($conn, $sql);  
+      goto2("viewlocal.php?UserID=$id", "Product and image is successfully updated");
+  } else {
+      $sql = "UPDATE `tbllocal` 
+              SET `PackageName`='$pn', `Price`='$price', `Extra1`='$extra1' 
+              WHERE `PackageID`='$p' 
+              LIMIT 1";  
+      mysqli_select_db($conn, "myproject");
+      $result = mysqli_query($conn, $sql);  
+      goto2("viewlocal.php?UserID=$id", "Product is successfully updated");
+  }
 } else {
     $p=$_GET['PackageID'];
     $sql ="select * from tbllocal where PackageID='".$p."'";  // sql command

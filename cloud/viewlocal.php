@@ -3,7 +3,7 @@
 <?php include_once("config/settings.php"); 
 include_once('config/session.php'); 
     $p=$_GET['PackageID'];
-    $sql ="select * from tblinternational where PackageID='".$p."'";  // sql command
+    $sql ="select * from tbllocal where PackageID='".$p."'";  // sql command
     mysqli_select_db($conn,"myproject"); ///select database as default
     $result=mysqli_query($conn,$sql);  
     $row=mysqli_fetch_assoc($result); 
@@ -15,8 +15,8 @@ include_once('config/session.php');
 		<!-- Always force latest IE rendering engine or request Chrome Frame -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<!-- Page Title -->
-        <title><?php echo $row['PackageName']; ?></title>	
-        <link href="img/logo.png" rel="icon">	
+        <title><?php echo $row['PackageName']?></title>	
+        <link href="img/logo.png" rel="icon">
 		<!-- Meta Description -->
         <meta name="description" content="Blue One Page Creative HTML5 Template">
         <meta name="keywords" content="one page, single page, onepage, responsive, parallax, creative, business, html5, css3, css3 animation">
@@ -46,8 +46,10 @@ include_once('config/session.php');
 
 		<!-- Modernizer Script for old Browsers -->
         <script src="js/modernizr-2.6.2.min.js"></script>
-
+        
     </head>
+    
+    
     <body id="body">
 	
     <!-- preloader -->
@@ -88,14 +90,11 @@ include_once('config/session.php');
 									<?php while ($slocal=mysqli_fetch_assoc($searchlocal)){  ?>
 									<a href="viewlocal.php?PackageID=<?php echo  $slocal['PackageID'];?>&UserID=<?php echo $id?>"><?php echo  $slocal['PackageName'];?></a>
 									<?php } ?>
-									<?php while ($sinter=mysqli_fetch_assoc($searchinter)){  ?>
-									<a href="viewinternational.php?PackageID=<?php echo  $sinter['PackageID'];?>&UserID=<?php echo $id?>"><?php echo  $sinter['PackageName'];?></a>
-									<?php } ?>
 						</div>
 					    </div>
                     </li>
                     <li class="current"><a href="index.php?UserID=<?php echo $id?>">Home</a></li>
-                    <li><a href="#team">Book</a></li>
+                    <li><a href="#team">add to cart</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="profile.php?UserID=<?php echo $id?>"><i class="fa fa-user fa-1x"></i></a></li>
 					<li><a href="logout.php"><i class="fa fa-sign-out fa-1x"></i></a></li>
@@ -128,11 +127,9 @@ include_once('config/session.php');
 				<div class="carousel-inner" role="listbox">
 					
 					<!-- single slide -->
-					<div class="item active" style="background-image: url(<?php echo "admin/".$row['PackageImg'] ?>); filter:contrast(120%)">
+					<div class="item active" style="background-image: url(<?php echo "admin/".$row['PackageImg'] ?>); filter:contrast(105%)">>
 						<div class="carousel-caption">
-							<h2 data-wow-duration="700ms" data-wow-delay="500ms" class="wow bounceInDown animated" style="text-shadow: 2px 2px #gray;"><?php echo $row['PackageName'] ?></h2>
-							<h3 data-wow-duration="1000ms" class="wow slideInLeft animated"><span class="color">From <?php echo $row['StartDate'] ?></h3>
-							<h3 data-wow-duration="1000ms" class="wow slideInLeft animated"><span class="color">To <?php echo $row['EndDate'] ?></h3>
+							<h2 data-wow-duration="700ms" data-wow-delay="500ms" class="wow bounceInDown animated" style="text-shadow: 2px 2px gray;"><?php echo $row['PackageName'] ?></h2>
 						</div>
 					</div>
 					<!-- end single slide -->
@@ -153,7 +150,7 @@ include_once('config/session.php');
             <div class="row">
             
                 <div class="sec-title text-center mb50 wow bounceInDown animated" data-wow-duration="500ms">
-                    <h2>Package Description</h2>
+                    <h2>Product Description</h2>
                     <div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
                 </div>
 
@@ -165,82 +162,7 @@ include_once('config/session.php');
 							</div>
 							
 							<div class="service-desc">
-								<h3>Accomodation</h3>
 								<p><?php echo $row['Extra1']?></p>
-							</div>
-						</div>
-					</div>
-
-                    <div class="col-md-4 wow fadeInLeft" data-wow-duration="500ms">
-						<div class="service-item">
-							<div class="service-icon">
-								<i class="fa fa-globe fa-2x"></i>
-							</div>
-							
-							<div class="service-desc">
-								<h3>Including </h3>
-								<p><?php echo $row['Extra2']?></p>
-							</div>
-						</div>
-					</div>
-
-                    <div class="col-md-4 wow fadeInLeft" data-wow-duration="500ms">
-						<div class="service-item">
-							<div class="service-icon">
-								<i class="fa fa-check fa-2x"></i>
-							</div>
-							
-							<div class="service-desc">
-								<h3>Ticket </h3>
-								<p><?php echo $row['Extra3']?></p>
-							</div>
-						</div>
-					</div>
-                    
-            </div>
-        </div>
-    </section>
-    
-    <section id="features" class="features">
-        <div class="container">
-            <div class="row">
-            
-                <!-- service item -->
-                <div class="col-md-4 wow fadeInLeft" data-wow-duration="500ms">
-						<div class="service-item">
-							<div class="service-icon">
-								<i class="fa fa-users fa-2x"></i>
-							</div>
-							
-							<div class="service-desc">
-								<h3>Guide </h3>
-								<p><?php echo $row['Extra4']?></p>
-							</div>
-						</div>
-					</div>
-
-                    <div class="col-md-4 wow fadeInLeft" data-wow-duration="500ms">
-						<div class="service-item">
-							<div class="service-icon">
-								<i class="fa fa-plus-circle fa-2x"></i>
-							</div>
-							
-							<div class="service-desc">
-								<h3>Extra !</h3>
-								<p><?php echo $row['Extra5']?></p>
-							</div>
-						</div>
-					</div>
-
-                    <div class="col-md-4 wow fadeInLeft" data-wow-duration="500ms">
-						<div class="service-item">
-							<div class="service-icon">
-								<i class="fa fa-location-arrow fa-2x"></i>
-							</div>
-							
-							<div class="service-desc">
-								<h3>Country</h3>
-								<p><?php echo $row['Country']?></p>
 							</div>
 						</div>
 					</div>
@@ -259,33 +181,39 @@ include_once('config/session.php');
                 </div>
                 
                 <div class="sec-sub-title text-center wow fadeInRight animated" data-wow-duration="500ms">
-                    <p>Faster book your trip now!</p>
+                    <p>Faster buy your flower now!</p>
                 </div>
                 <div class="appointmentform">
                 <?php 
 
-                if (isset($_POST['date'])){
-                    $pid=$internationalappid;
+                $localapp=retrievelocalapp();
+                $localappcount=1;
+                while ($x=mysqli_fetch_assoc($localapp)){
+                    $localappcount++;
+                }
+                
+                $localappid="LA00".$localappcount;
+
+                if (isset($_POST['traveldate'])){
+                    $a=$localappid;
                     $d=$_POST['date']; 
                     $p=$_POST['packageid'];
                     $t=$_POST['traveldate'];
                     $u=$_POST['userid'];
                     $s="Pending";
-                    $sql ="INSERT INTO `tblinternationalappoint` ( `AppointID`,`Date`, `InternationalPackageID`, `TravelDate`, `UserID`, `Status`) 
-                    VALUES ('".$pid."','".$d."', '".$p."', '".$t."', '".$u."', '".$s."')";  
+                    $sql ="INSERT INTO `tbllocalappoint` (`AppointID`, `Date`, `LocalPackageID`, `TravelDate`, `UserID`, `Status`) 
+                    VALUES ('".$a."', '".$d."', '".$p."', '".$t."', '".$u."', '".$s."')";  
                     mysqli_select_db($conn,"myproject"); ///select database as default
                     $result=mysqli_query($conn,$sql);// command allow sql cmd to be sent to mysql
-                    goto2("index.php?UserID=$id","Your appointment is successfully booked.Your appointment id is $pid");
+                    goto2("index.php?UserID=$id","Product add to Cart is successfully you may view it in your Profile");
                 } else {
-                
                 ?>
-                <form action="viewinternational.php?PackageID=<?php echo  $row['PackageID'];?>&UserID=<?php echo $id?>" method="POST">
-                <label for="Date">Appointment Date:</label>
-                <input type="date" id="date" name="date" value=""><br><br>
+                <form action="viewlocal.php?PackageID=<?php echo  $row['PackageID'];?>&UserID=<?php echo $id?>" method="POST">
+
                 <label for="PackageID">Package ID:</label>
                 <input type="text" id="packageid" name="packageid" value="<?php echo $row['PackageID'] ?>"><br><br>
-                <label for="TravelDate">Travel Date:</label>
-                <input type="date" id="traveldate" name="traveldate" value="<?php echo $row['StartDate'] ?>"><br><br>
+                <label for="TravelDate">Pickup Date:</label>
+                <input type="date" id="traveldate" name="traveldate" value=""><br><br>
                 <label for="UserID">User ID:</label>
                 <input type="text" id="userid" name="userid" value="<?php echo $id?>"><br><br>
                 <input type="submit" value="Book">
@@ -306,94 +234,85 @@ include_once('config/session.php');
     ==================================== -->		
     
     <section id="contact" class="contact">
-			<div class="container">
-				<div class="row mb50">
-				
-					<div class="sec-title text-center mb50 wow fadeInDown animated" data-wow-duration="500ms">
-						<h2>Please Contact Us</h2>
-						<div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
-					</div>
-					
-					<div class="sec-sub-title text-center wow rubberBand animated" data-wow-duration="1000ms">
-						<p>How was your experience? </p>
-					</div>
-					
-					<!-- contact address-->
-					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 wow fadeInLeft animated" data-wow-duration="500ms">
-						<div class="contact-address">
-							<h3>Have a question?<br> Let us help you !</h3>
+        <div class="container">
+            <div class="row mb50">
+            
+                <div class="sec-title text-center mb50 wow fadeInDown animated" data-wow-duration="500ms">
+                    <h2>Still have some question?</h2>
+                    <div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
+                </div>
+                
+                <div class="sec-sub-title text-center wow rubberBand animated" data-wow-duration="1000ms">
+                    <p>How do you think about the trip</p>
+                </div>
+                
+                <!-- contact address-->
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 wow fadeInLeft animated" data-wow-duration="500ms">
+                    <div class="contact-address">
+                        <h3>Have a question?<br> Let us help you !</h3>
 							<p>Need help? We're right here, always.</p>
 							<p>Get quick answers, contact info, and <br>more with our interactive help feature.</p>
 							<p id="hotline"> Hotline:<a href="tel:071234567" style="color:black;" >+ 07-1234567 <i class="fa fa-phone fa-lg"></i></a></p>
-						</div>
-					</div> 
-					<!-- end contact address -->
-					
-					<!-- contact form -->
-					<div class="col-lg-8 col-md-8 col-sm-7 col-xs-12 wow fadeInDown animated" data-wow-duration="500ms" data-wow-delay="300ms">
-						<div class="contact-form">
-							<h3>Kindly leave us a feedback message</h3>
-							<form action="#" id="contact-form">
-								<div class="input-group name-email">
-									<div class="input-field">
-										<input type="text" name="name" id="name" placeholder="Name" class="form-control">
-									</div>
-									<div class="input-field">
-										<input type="email" name="email" id="email" placeholder="Email" class="form-control">
-									</div>
-								</div>
-								<div class="input-group">
-									<textarea name="message" id="message" placeholder="Message" class="form-control"></textarea>
-								</div>
-								<div class="input-group">
-									<input type="submit" id="form-submit" class="pull-right" value="Send message">
-								</div>
-							</form>
-						</div>
-					</div>
-					<!-- end contact form -->
-					
-					<!-- footer social links -->
-					<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12 wow fadeInRight animated" data-wow-duration="500ms" data-wow-delay="600ms">
-						<ul class="footer-social">
-							<li><a href="https://twitter.com/GOGOTravelWeb"><i class="fa fa-twitter fa-2x"></i></a></li>
-							<li><a href="https://www.instagram.com/_gogotravel_/"><i class="fa fa-instagram fa-2x"></i></a></li>
-							<li><a href="https://www.facebook.com/Gogotravel-102258424578661/"><i class="fa fa-facebook fa-2x"></i></a></li>
-						</ul>
-					</div>
-					<!-- end footer social links -->
-					
-				</div>
-			</div>
-			
-			<!-- Google map -->
-			<!--
-			<div id="map_canvas" class="wow bounceInDown animated" data-wow-duration="500ms"></div> -->
-			<iframe id="map_canvas" class="wow bounceInDown animated" data-wow-duration="500ms" 
-			src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=%20Skudai+()&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe> 
-			<!-- End Google map -->
-			
-		</section>
-		
-        <!--
-        End Contact Us
-        ==================================== -->
-		
-		
-		<footer id="footer" class="footer">
+                    </div>
+                </div> 
+                <!-- end contact address -->
+                
+                <!-- contact form -->
+                <div class="col-lg-8 col-md-8 col-sm-7 col-xs-12 wow fadeInDown animated" data-wow-duration="500ms" data-wow-delay="300ms">
+                    <div class="contact-form">
+                        <h3>Kindly leave us a feedback message</h3>
+                        <form action="#" id="contact-form">
+                            <div class="input-group name-email">
+                                <div class="input-field">
+                                    <input type="text" name="name" id="name" placeholder="Name" class="form-control">
+                                </div>
+                                <div class="input-field">
+                                    <input type="email" name="email" id="email" placeholder="Email" class="form-control">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <textarea name="message" id="message" placeholder="Message" class="form-control"></textarea>
+                            </div>
+                            <div class="input-group">
+                                <input type="submit" id="form-submit" class="pull-right" value="Send message">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- end contact form -->
+                
+                <!-- footer social links -->
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12 wow fadeInRight animated" data-wow-duration="500ms" data-wow-delay="600ms">
+                    <ul class="footer-social">
+                        <li><a href="https://twitter.com/GOGOTravelWeb"><i class="fa fa-twitter fa-2x"></i></a></li>
+                        <li><a href="https://www.instagram.com/_gogotravel_/"><i class="fa fa-instagram fa-2x"></i></a></li>
+                        <li><a href="https://www.facebook.com/Gogotravel-102258424578661/"><i class="fa fa-facebook fa-2x"></i></a></li>
+                    </ul>
+                </div>
+                <!-- end footer social links -->
+                
+            </div>
+        </div>
+        
+    </section>
+    
+    <!--
+    End Contact Us
+    ==================================== -->
+    
+    
+    <footer id="footer" class="footer">
 			<div class="container">
 				<div class="row">
 				
 					<div class="col-md-5 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms">
 						<div class="footer-single">
 						<a href="#body">
-							<img src="img/footlogo8.png" alt=""  href="#body"></a>
+                        <img src="img/headlogo.png" alt=""  href="#body"></a>
 							<h3><b><br>About Us</b></h3>
-							<p><br>At GOGOTravel, we offer the best way to discover activities, attractions and things to do wherever you travel.
-							We help you to discover and book in-destination services at the best prices. With a few taps or clicks, 
-							you can be ready to travel wherever you want.<br>
-							We are committed to bringing out you the best in value and quality travel arrangement, 
-							and strive to become "Your Choice of A Truly Vacation."</p>
+							<p><br>At GOGO Graduate, we specialize in providing beautiful graduation bouquets and gifts to celebrate your big achievement. 
+							We help you easily select and book the perfect flowers to make your graduation day even more memorable.<br>
+							We are committed to offering the best in quality and value, and strive to become "Your Choice for Graduation Gifts and Bouquets."</p>
 							
 						</div>
 					</div>
@@ -425,14 +344,13 @@ include_once('config/session.php');
 				<div class="row">
 					<div class="col-md-12">
 						<p class="copyright text-center">
-							Copyright © 2021 GOGOTravel. All rights reserved. Designed & developed by Group 6.</a>
+                            Copyright © 2025 GOGOGraduate. All rights reserved.</a>
 						</p>
 					</div>
 				</div>
 			</div>
 		</footer>
 		<a href="javascript:void(0);" id="back-top"><i class="fa fa-angle-up fa-3x"></i></a>
-    
 
     <!-- Essential jQuery Plugins
     ================================================== -->
@@ -566,7 +484,7 @@ include_once('config/session.php');
 					a[i].style.display = "none";
 					}
 				}	
-		}
+			}
     </script>
 </body>
 </html>

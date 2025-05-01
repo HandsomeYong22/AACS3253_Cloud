@@ -21,12 +21,12 @@ if (isset($_POST['date'])){
     $p=$_POST['packageid'];
     $t=$_POST['traveldate'];
     $u=$_POST['userid'];
-    $s=$_POST['status'];
+    $s=['status'];
     $sql ="INSERT INTO `tbllocalappoint` (`AppointID`, `Date`, `LocalPackageID`, `TravelDate`, `UserID`, `Status`) 
     VALUES ('".$a."', '".$d."', '".$p."', '".$t."', '".$u."', '".$s."')";  
     mysqli_select_db($conn,"myproject"); ///select database as default
     $result=mysqli_query($conn,$sql);// command allow sql cmd to be sent to mysql
-    goto2("viewlocalappoint.php?UserID=$id","Appointment is successfully inserted");
+    goto2("viewlocalappoint.php?UserID=$id","Payment or Cart is successfully inserted");
 } else {
   
 ?>
