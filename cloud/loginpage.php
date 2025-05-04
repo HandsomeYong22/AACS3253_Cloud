@@ -5,16 +5,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Log In</title>
-    <link href="img/logo.png" rel="icon">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/fontawsom-all.min.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css" />
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link href="https://gogobuckett.s3.amazonaws.com/headlogo.png" rel="icon">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/fontawsom-all.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
 </head>
 <body id="body">
 <div style="background-image: url('img/login-background.png'); height:100%; overflow:scroll;">
 <?php
-require_once('config/function.php');
+require_once('../config/function.php');
 require_once('snow.html');?>  
 <header id="navigation" class="navbar-fixed-top navbar">
             <div class="container">
@@ -31,7 +31,7 @@ require_once('snow.html');?>
 				<!-- main nav -->
                 <nav class="collapse navbar-collapse navbar-right" role="navigation">
                     <ul id="" class="nav navbar-nav">
-                        <li><a href="signup.php">Register</a></li>
+                        <li><a href="../signup.php">Register</a></li>
                     </ul>
                 </nav>
 				<!-- /main nav -->	
@@ -68,11 +68,11 @@ require_once('snow.html');?>
                                     <button class="btn btn-success btn-round">Login</button>
                                 </div> 
                                 <div class="input-group left">
-                                <a href="forgetpassword.php">
+                                <a href="../forgetpassword.php">
                                 <p class="forgot-p">Forget Password ?</a> 
                                 </div>  
                                 <div class="input-group left">
-                                <a href="deletecookie.php">
+                                <a href="../deletecookie.php">
                                 <p class="forgot-p">Delete Cookie?</p></a>
                                 </div> 
                             </div> 
@@ -83,7 +83,7 @@ require_once('snow.html');?>
                             <div class="ditk-inf"><br>
                                 <br><h2 class="w-100">Didn't Have an Account </h2><br>
                                 <p>Simply Create your account by clicking the Signup Button</p><br><br><br>
-                                <a href="signup.php">
+                                <a href="../signup.php">
                                 <button type="button" class="btn btn-outline-light">SIGN UP</button><br><br><br><br><br><br><br><br>
                                 </a>
                             </div>
@@ -95,10 +95,10 @@ require_once('snow.html');?>
     </div>
     </div>   
 </body>
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/script.js"></script>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/script.js"></script>
 
 
 </html>
