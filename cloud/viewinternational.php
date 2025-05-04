@@ -72,7 +72,7 @@ include_once('config/session.php');
                 <!-- logo -->
                 <a class="navbar-brand" href="index.php?UserID=<?php echo $id?>">
                     <h1 id="logo">
-                        <img src="img/headlogo9.png" alt="Gogo">
+                        <img src="https://gogobuckett.s3.amazonaws.com/headlogo.png" alt="Gogo">
                     </h1>
                 </a>
                 <!-- /logo -->

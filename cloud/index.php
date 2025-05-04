@@ -66,7 +66,7 @@ $id=$_GET['UserID'];
 					<!-- /responsive nav button -->
 					<a class="navbar-brand" href="#body">
 						<h1 id="logo">
-							<img src="img/headlogo.png" alt="GOGO">
+							<img src="https://gogobuckett.s3.amazonaws.com/headlogo.png" alt="GOGO">
 						</h1>
 					</a>
 				</div>	
@@ -377,7 +377,7 @@ $id=$_GET['UserID'];
 					<div class="col-md-5 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms">
 						<div class="footer-single">
 						<a href="#body">
-							<img src="img/headlogo.png" alt=""  href="#body"></a>
+							<img src="https://gogobuckett.s3.amazonaws.com/headlogo.png" alt=""  href="#body"></a>
 							<h3><b><br>About Us</b></h3>
 							<p><br>At GOGO Graduate, we specialize in providing beautiful graduation bouquets and gifts to celebrate your big achievement. 
 							We help you easily select and book the perfect flowers to make your graduation day even more memorable.<br>

@@ -47,7 +47,7 @@ if (isset($_POST['ans'])){
                         <i class="fa fa-bars fa-2x"></i>
                     </button>
 					<!-- /responsive nav button -->
-                      <img src="img/headlogo.png" alt="Gogo" id="logo">
+                      <img src="https://gogobuckett.s3.amazonaws.com/headlogo.png" alt="Gogo" id="logo">
                 </div>
 
 				<!-- main nav -->

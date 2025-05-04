@@ -1,5 +1,5 @@
 <?php
-
+$database = "myproject";
 $conn=new mysqli($servername,$user,$passw);
 
 //if ($conn->connect_error){

@@ -57,7 +57,7 @@ $id=$_GET['UserID'];
 					<!-- /responsive nav button -->
 					<a class="navbar-brand" href="#body">
 						<h1 id="logo">
-							<img src="img/headlogo.png" alt="GOGO">
+							<img src="https://gogobuckett.s3.amazonaws.com/headlogo.png" alt="GOGO">
 						</h1>
 					</a>
 				</div>	
