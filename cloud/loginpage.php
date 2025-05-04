@@ -15,7 +15,7 @@
 <div style="background-image: url('img/login-background.png'); height:100%; overflow:scroll;">
 <?php
 require_once('../config/function.php');
-require_once('snow.html');?>  
+require_once('../snow.html');?> 
 <header id="navigation" class="navbar-fixed-top navbar">
             <div class="container">
                 <div class="navbar-header">
